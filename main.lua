@@ -1,4 +1,9 @@
 function love.run()
+
+  local tge = require("tge.tge")
+
+  local v = tge.vec3.new(1, 3, 2)
+
   --if love.load then love.load(love.arg.parseGameArguments(arg), arg) end
 
   if not love.timer then error("Missing module love.timer.") end
@@ -40,6 +45,7 @@ function love.run()
       --if love.draw then love.draw()
 
       do
+        love.graphics.print(v:length(), 20, 20)
       end
 
       love.graphics.present()
