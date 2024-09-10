@@ -26,44 +26,62 @@ function vec3.new(x, y, z)
   return setmetatable({ x, y, z }, vec3)
 end
 
+function vec3.clone(self)
+  return vec3.new(self[1], self[2], self[3])
+end
+
+function vec3.copy(self, other)
+  self[1] = other[1]
+  self[2] = other[2]
+  self[3] = other[3]
+end
+
 function vec3.add_number(self, number)
   self[1] = self[1] + number
   self[2] = self[2] + number
+  self[3] = self[3] + number
 end
 
 function vec3.sub_number(self, number)
   self[1] = self[1] - number
   self[2] = self[2] - number
+  self[3] = self[3] - number
 end
 
 function vec3.mul_number(self, number)
   self[1] = self[1] * number
   self[2] = self[2] * number
+  self[3] = self[3] * number
 end
 
 function vec3.div_number(self, number)
   self[1] = self[1] / number
   self[2] = self[2] / number
+  self[3] = self[3] / number
 end
 
 function vec3.add_other(self, other)
   self[1] = self[1] + other[1]
   self[2] = self[2] + other[2]
+  self[3] = self[3] + other[3]
 end
 
 function vec3.sub_other(self, other)
   self[1] = self[1] - other[1]
   self[2] = self[2] - other[2]
+  self[3] = self[3] - other[3]
 end
 
 function vec3.mul_other(self, other)
   self[1] = self[1] * other[1]
   self[2] = self[2] * other[2]
+  self[3] = self[3] * other[3]
 end
 
 function vec3.div_other(self, other)
   self[1] = self[1] / other[1]
   self[2] = self[2] / other[2]
+  self[3] = self[3] / other[3]
 end
 
 function vec3.dot(self, other)
@@ -72,6 +90,10 @@ end
 
 function vec3.length(self)
   return math.sqrt(self:dot(self))
+end
+
+function vec3.normalize(self)
+  self:div_number(self:length())
 end
 
 function vec3.cross(self, other)
