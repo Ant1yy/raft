@@ -16,7 +16,7 @@ end
 
 vec3.__newindex = function(self, key, value)
   if keysEnum[key] then
-    return rawset(self, keysEnum[key], value)
+    rawset(self, keysEnum[key], value)
   else
     -- No
   end
